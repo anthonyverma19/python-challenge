@@ -6,8 +6,8 @@ import csv
 #read in csv
 csvpath = os.path.join('PyPoll', 'Resources', 'election_data.csv')
 print(csvpath)
-#make variable for total votes cast in dataset
-#make variables for votes cast for each candidate in dataset
+#create variable for total votes cast in dataset
+#create variables for votes cast for each candidate 
 total_votes = []
 stockham_votes = 0
 degette_votes = 0
@@ -32,21 +32,21 @@ with open(csvpath,encoding="utf-8") as csvfile:
         elif row[2] == "Raymon Anthony Doane": 
             doane_votes +=1
 
-#make dictionaries out of lists to find winner
+#create dictionaries to find the winner
 candidates = ["Charles Casper Stockham", "Diana DeGette", "Raymon Anthony Doane"]
 candidate_votes = [stockham_votes, degette_votes, doane_votes]
 #zip to pair candidates with corresponding votes and obtain the max to determine winner
 votes_dict = dict(zip(candidates, candidate_votes))
 winner = max(votes_dict, key=votes_dict.get)
 
-#make a variable containing total_votes as an integer for calculations
+#create a variable containing total_votes as an integer for calculations
 total_vote_count = len(total_votes)
 #caculate percentages of votes for each candidate
 stockham_percent = (stockham_votes/total_vote_count) * 100
 degette_percent = (degette_votes/total_vote_count) * 100
 doane_percent = (doane_votes/total_vote_count) * 100
 
-#print analysis to terminal
+#print analysis 
 print("Election Results")
 print("-------------------------")
 print(f"Total Votes : {len(total_votes)}" )
